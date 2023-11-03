@@ -31,8 +31,8 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    public Optional<Employee> findEmployeeById(Long id){
-        return Optional.ofNullable(employeeRepository.findById(id).orElseThrow(() -> new UserNotFoundException(" User by id: " + id + " was not found.")));
+    public Employee findEmployeeById(Long id) {
+        return employeeRepository.findEmployeeById(id).orElseThrow(()-> new UserNotFoundException(" User by id: " + id + " was not found."));
     }
 
     public void deleteEmployee(Long id){
